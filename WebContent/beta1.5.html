@@ -1,0 +1,89 @@
+<!DOCTYPE>
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>出报告子系统</title>
+<link type="text/css" rel="stylesheet" href="css/style.css" />
+<script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
+<script src="js/jquery.form.js"></script>
+
+</head>
+
+<body>
+	<div class="top"></div>
+	<div id="header">
+
+		<div class="nav choosed">显示节点分布</div>
+		<div class="nav">显示表格</div>
+
+	</div>
+	<div id="content">
+		<div class="left_menu">
+			<ul id="nav_dot">
+				<li>
+					<h4 class="M1">
+						<span title="新增文字框"></span>
+					</h4>
+
+				</li>
+				<li>
+					<h4 class="M2">
+						<span title="保存图片"> </span>
+					</h4>
+
+				</li>
+				<li>
+					<h4 class="M3">
+						<span title="下载表格(请上传json文件)"></span>
+						<form id="submitForm_getExcel">
+							<input type="file" name="file_getExcel" id="upload_getExcel"
+								method="post" action="" enctype="multipart/form-data"
+								multiple="multiple" />
+						</form>
+					</h4>
+
+				</li>
+				<li>
+					<h4 class="M4">
+						<span title="上传json文件"><form id="submitForm_getJSON">
+								<input type="file" name="file_getJSON" id="upload_getJSON"
+									method="post" action="" enctype="multipart/form-data"
+									multiple="multiple" />
+							</form></span>
+					</h4>
+				</li>
+
+				<li>
+					<h4 class="M5">
+						<span title="上传底图"></span>
+						<form id="submitForm_getImagePath">
+							<input type="file" name="file_getImagePath"
+								id="upload_getImagePath" method="post" action=""
+								enctype="multipart/form-data" multiple="multiple" />
+						</form>
+					</h4>
+				</li>
+				<li>
+					<h4 class="M6">
+						<span title="显示/隐藏底图"></span>
+					</h4>
+				</li>
+			</ul>
+		</div>
+		<div class="m-right">
+
+			<div class="main" id="mainContent"></div>
+		</div>
+	</div>
+
+</body>
+<script type="text/javascript" src="js_cwj/pr-utils.js"></script>
+<script type="text/javascript" src="js_cwj/pr-addInfo.js"></script>
+<script type="text/javascript" src="js_cwj/pr-show.js"></script>
+<script type="text/javascript" src="js_cwj/pr-function.js"></script>
+
+<script type="text/javascript" src="js_cwj/pr-init.js"></script>
+<script type="text/javascript" src="js/menu.js"></script>
+
+</html>

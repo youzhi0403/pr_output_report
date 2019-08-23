@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form id="submitForm_getJSON">
+		<input type="file" name="file_getJSON" id="upload_getJSON" method="post" action=""
+			enctype="multipart/form-data" multiple="multiple" />
+	</form>
+
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/jquery.form.js"></script>
+
+
+	<script>
+		//选择了新文件
+		$("#upload_getJSON").change(function() {
+			//如果文件为空
+			console.log("执行方法");
+			if ($(this).val() == '') {
+				return;
+			}
+
+			$("#submitForm_getJSON").ajaxSubmit({
+				url : "/pr_output_report/getJSON",
+				type : "POST",
+				dataType : "json",
+				headers : {
+					"ClientCallMode" : "ajax"
+				}, //可以添加请求头部
+				success : function(result) {
+
+					console.log(result);
+					
+
+				},
+				error : function(result) {
+					alert("上传失败");
+					console.log(result);
+				}
+			});
+		});
+
+
+	</script>
+</body>
+</html>

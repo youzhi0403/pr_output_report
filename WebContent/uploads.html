@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form id="submitForm">
+		<input type="file" name="file" id="upload" method="post" action="" enctype="multipart/form-data" multiple="multiple"/>
+	</form>
+	
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/jquery.form.js"></script>
+
+
+	<script>
+	
+		//选择了新文件
+		$("#upload").change(function(){
+			//如果文件为空
+			console.log("执行方法");
+			if($(this).val() == ''){
+				return;
+			}
+			
+			$("#submitForm").ajaxSubmit({
+				url:"/pr_output_report/upload",
+				type:"POST",
+				dataType:"json",
+				headers:{"ClientCallMode":"ajax"},      //可以添加请求头部
+				success:function(data){
+					alert("上传成功");
+					alert(data);
+
+				},
+				error:function(data){
+					alert("上传失败");
+					alert(data);
+				}
+			});
+		});
+		
+	</script>
+</body>
+</html>

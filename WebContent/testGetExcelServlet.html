@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form id="submitForm_getExcel">
+		<input type="file" name="file_getExcel" id="upload_getExcel" method="post" action=""
+			enctype="multipart/form-data" multiple="multiple" />
+	</form>
+
+	<script src="js/jquery-1.10.2.min.js"></script>
+	<script src="js/jquery.form.js"></script>
+
+
+	<script>
+		//选择了新文件
+		$("#upload_getExcel").change(function() {
+			//如果文件为空
+			console.log("执行方法");
+			if ($(this).val() == '') {
+				return;
+			}
+
+			$("#submitForm_getExcel").ajaxSubmit({
+				url : "/pr_output_report/getExcel",
+				type : "POST",
+				dataType : "json",
+				headers : {
+					"ClientCallMode" : "ajax"
+				}, //可以添加请求头部
+				success : function(result) {
+
+					console.log(result);
+					$.download(result.url,'post',result.url);
+
+				},
+				error : function(result) {
+					alert("上传失败");
+					console.log(result);
+				}
+			});
+		});
+
+		//download方法
+		$.download = function(url, method, filedir) {
+			jQuery(
+					'<form action="'
+							+ url
+							+ '" method="'
+							+ (method || 'post')
+							+ '">'
+							+ '<input type="text" name="filePath" value="' + filedir + '"/>'
+							+ '</form>').appendTo('body').submit().remove();
+		}
+	</script>
+</body>
+</html>
