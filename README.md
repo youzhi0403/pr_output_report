@@ -4,6 +4,7 @@
 
 # 整体效果
 
+![Image text](https://github.com/youzhi0403/pr_output_report/blob/master/README_PICTURE/p1.png)
 
 # 技术栈
  
